@@ -4,6 +4,15 @@ import Bg from './assets/bg.jpg'
 const Mainsection = () => {
   return (
     <div className='w-full h-screen'>
+      <div className='w-full h-full bg-sky-950'></div>
+      <img src={Bg} className='w-full h-full object-cover'></img>
+      <img src={Bg} className='w-full h-full object-cover'></img>
+      <img src={Bg} className='w-full h-full object-cover'></img>
+      <img src={Bg} className='w-full h-full object-cover'></img>
+      <img src={Bg} className='w-full h-full object-cover'></img>
+      <img src={Bg} className='w-full h-full object-cover'></img>
+      <img src={Bg} className='w-full h-full object-cover'></img>
+      <img src={Bg} className='w-full h-full object-cover'></img>
       <img src={Bg} className='w-full h-full object-cover'></img>
       <img src={Bg} className='w-full h-full object-cover'></img>
       <img src={Bg} className='w-full h-full object-cover'></img>

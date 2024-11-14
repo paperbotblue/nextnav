@@ -21,6 +21,9 @@ const Navbar = () => {
   const [ishover, setIsHover] = useState(false);
   const [sidebtn, setsidebtn] = useState(false);
   const [sidebtnindex, setsidebtnindex] = useState(0);
+  const [menu, setmenu] = useState(false);
+  const [btn, setbtn] = useState(false);
+  const [btnindex, setbtnindex] = useState(null);
 
   const isMediumScreen = useMediaQuery({ query: "(min-width: 768px)" });
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -34,11 +37,7 @@ const Navbar = () => {
       document.documentElement.scrollHeight - window.innerHeight;
     const currentScroll = window.scrollY;
     const scrollPercent = (currentScroll / totalHeight) * 100;
-    if (isExtraExtraLargeScreen) {
-      setScrollposition(scrollPercent * 1.96);
-    } else {
-      setScrollposition(scrollPercent * 2);
-    }
+    setScrollposition(scrollPercent);
   };
 
   useEffect(() => {
@@ -47,6 +46,19 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll2);
     };
   }, []);
+
+  useEffect(() => {
+    if (menu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Clean up on component unmount or when the menu closes
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menu]);
 
   const handleScroll = () => {
     if (window.scrollY > 30) {
@@ -65,12 +77,12 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="fixed overflow-hidden top-0 2xl:max-w-[120em] w-full h-full" >
+      <div className="fixed overflow-hidden top-0 2xl:max-w-[120em] w-full h-full">
         <nav
           className={`absolute top-0 z-50 w-full flex justify-center items-center ${
             scrolling
-              ? "bg-gradient-to-l to-white via-white from-sky-900 2xl:h-[6rem] xl:h-[5rem] lg:h-[4rem] md:h-[3rem] h-[2.8rem]"
-              : "bg-gradient-to-l to-white via-white/90 from-[#3472b03b] 2xl:h-[7rem] xl:h-[6rem] lg:h-[5rem] md:h-[4rem] h-[3.5rem]"
+              ? "bg-gradient-to-l to-white  from-sky-900 md:bg-gradient-to-l md:to-white md:via-white md:from-sky-900 2xl:h-[6rem] xl:h-[5rem] lg:h-[4rem] md:h-[3rem] h-[2.8rem]"
+              : "bg-gradient-to-l to-white from-[#3472b03b] md:bg-gradient-to-l md:to-white md:via-white/90 md:from-[#3472b03b] 2xl:h-[7rem] xl:h-[6rem] lg:h-[5rem] md:h-[4rem] h-[3.5rem]"
           }`}
           
         >
@@ -155,7 +167,72 @@ const Navbar = () => {
               </button>
             </div> 
           </div>
+          {/* mobile navbar */}
+            <div className="relative z-50 md:hidden flex w-full h-[90%] items-center justify-between px-2">
+              <div className="w-12  h-[3rem]">
+                <img src={Logo1} className="w-full h-full"></img>
+              </div>
+              <div className="flex items-center gap-3">
+                <IoMdCall className="text-2xl text-gray-900"/>
+                <IoMailOutline className="text-2xl text-gray-950"/>
+                <button className={`${scrolling ? 'text-sm' : 'text-base'} border-[1px] border-white p-1 rounded-md text-white`}>Contact us</button>
+                <div 
+                className="relative text-4xl text-white"
+                onClick={()=>setmenu(!menu)}
+                >
+                  {
+                    menu ? <IoClose /> : <HiMenuAlt1/>
+                  }
+                </div>
+              </div>
+            </div>
+            <div className={`absolute z-30 top-0 right-0 w-[70%] h-screen bottom-0 duration-500 ${menu ? 'translate-x-0' : 'translate-x-full'}`}>
+              <div className={`w-full ${scrolling ? 'h-[2.8rem]' : 'h-[3.5rem]'}  `}></div>
+              <div className="pl-8 pt-10 w-full h-full flex flex-col gap-5 bg-white overflow-y-auto justify-between">
+                <div className="flex flex-col gap-5">
+                <h1 className="text-2xl font-NavMenuFont">Explore QBC</h1>
+                <div className="flex flex-col gap-4">
+                  {
+                    Navdata.map((item, index)=>(
+                      <div className="flex flex-col items-start w-52 rounded-md border-[2px] border-black/50 py-3 pl-2 bg-white" onClick={()=>{setbtn(!btn); setbtnindex(index);}}>
+                        <button className="text-lg font-subMenuFont text-left w-full" key={item.id} >{item.buttoname}</button>
+                        {
+                          item.subbuthai && 
+                          <div className={`flex w-full flex-col pl-4 items-start gap-1 pt-2 pr-1 duration-300 overflow-hidden ${btn && btnindex === index ? 'flex' : 'hidden'}`}>
+                            {
+                              item.subbut.map(sub=>(
+                                <button key={sub.id} className=" border-b-[1px] py-1 text-left w-full pl-1">{sub.subbutname}</button>
+                              ))
+                            }
+                          </div>
+                        }
+                      </div>
+                    ))
+                  }
+                </div>
+                </div>
+                <div className="w-full h-20 flex justify-between items-center pb-[4rem]">
+                  <h1 className="text-xs font-subMenuFont font-extralight text-gray-600">
+                    FOLLOW US:
+                  </h1>
+                  <div className="flex w-2/3 justify-end px-4 gap-2">
+                    <FaFacebookF className="rounded-full border-[1px] border-gray-400 w-6 h-6 p-1 " />
+                    <FaInstagram className="rounded-full border-[1px] border-gray-400 w-6 h-6 p-1" />
+                    <FaLinkedinIn className="rounded-full border-[1px] border-gray-400 w-6 h-6 p-1" />
+                    <FaXTwitter className="rounded-full border-[1px] border-gray-400 w-6 h-6 p-1" />
+                  </div>
+                </div>
+                {/* <div className="W-full h-10"></div> */}
+              </div>
+
+            </div>
+          
+
+
+          
+
         </nav>
+        <div className={`w-full h-full duration-500 ${menu ? 'backdrop-blur-md' : 'backdrop-blur-0'}`} onMouseEnter={()=>setIsHover(false)}></div>
         <div
             className={` absolute z-40 2xl:w-[24rem] xl:w-[22rem] lg:w-20rem] md:w-[18rem]  h-full top-0 left-0 bottom-0 items-center  hidden md:flex flex-col duration-500 ${
               ishover ? "translate-x-0 " : "-translate-x-[110%]"
@@ -229,32 +306,27 @@ const Navbar = () => {
             </div>
           </div>
 
-        {/* mobile navbar */}
+        
 
-        {/* <nav className="flex sm:hidden">
-          <div className="text-white">
-            shgdfkljhasdfk
-          </div>
-        </nav> */}
-
-        {/* <div className="absolute z-20 top-0 pt-32 2xl:w-[6.5rem] pb-2 xl:w-[5.8rem] lg:w-[4.8rem] md:w-[4rem] h-full border-r-[1px] border-gray-400 hidden md:flex flex-col justify-center gap-20 items-center">
+        
+        <div className="absolute z-20 top-0 pt-32 2xl:w-[6.5rem] pb-2 xl:w-[5.8rem] lg:w-[4.8rem] md:w-[4rem] h-full border-r-[1px] border-gray-400 hidden md:flex flex-col justify-center gap-20 items-center">
           <div
-            className={`h-96 py-[1px] flex justify-center w-2 rounded-xl border-[1px] border-gray-400`}
+            className={`h-[80%] py-[1px] flex justify-center w-2 rounded-xl border-[1px] border-gray-400`}
           >
             <div
-              style={{ transform: `translateY(${scrollposition}%)` }}
-              className="w-1 flex 2xl:h-32 xl:h-[4.95rem] lg:h-[3.55rem] md:h-[2.45rem] bg-gray-100 rounded-xl"
+              style={{ transform: `translateY(${scrollposition*2}%)` }}
+              className="w-1 flex h-[33.4%] bg-gray-100 rounded-xl"
             ></div>
           </div>
           <div
-            className={` flex flex-col  items-center 2xl:gap-6 md:gap-2 text-white xl:h-[30%] md:h-[50%] w-[80%]`}
+            className={` flex flex-col  items-center gap-[5%] text-white h-[40%] w-[100%]`}
           >
-            <FaFacebookF className="2xl:text-4xl xl:text-2xl lg:text-xl md:text-lg p-1 border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
-            <FaInstagram className="2xl:text-4xl xl:text-2xl lg:text-xl md:text-lg p-1 border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
-            <FaLinkedinIn className="2xl:text-4xl xl:text-2xl lg:text-xl md:text-lg p-1 border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
-            <FaXTwitter className="2xl:text-4xl xl:text-2xl lg:text-xl md:text-lg p-1 border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
+            <FaFacebookF className="text-[250%] p-[10%] border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
+            <FaInstagram className="text-[250%] p-[10%] border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
+            <FaLinkedinIn className="text-[250%] p-[10%] border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
+            <FaXTwitter className="text-[250%] p-[10%] border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
