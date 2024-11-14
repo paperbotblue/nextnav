@@ -65,86 +65,16 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="fixed overflow-hidden top-0 2xl:max-w-[120em] w-full h-full">
+      <div className="fixed overflow-hidden top-0 2xl:max-w-[120em] w-full h-full" >
         <nav
-          className={`absolute top-0 z-30 w-full flex justify-center items-center ${
+          className={`absolute top-0 z-50 w-full flex justify-center items-center ${
             scrolling
               ? "bg-gradient-to-l to-white via-white from-sky-900 2xl:h-[6rem] xl:h-[5rem] lg:h-[4rem] md:h-[3rem] h-[2.8rem]"
               : "bg-gradient-to-l to-white via-white/90 from-[#3472b03b] 2xl:h-[7rem] xl:h-[6rem] lg:h-[5rem] md:h-[4rem] h-[3.5rem]"
           }`}
-          onMouseEnter={() => setIsHover(fasle)}
-          onMouseLeave={() => setIsHover(false)}
+          
         >
-          <div
-            className={` absolute z-40 2xl:w-[24rem] xl:w-[22rem] lg:w-20rem] md:w-[18rem]  h-screen top-0 left-0 bottom-0  bg-white hidden md:flex items-end duration-500 ${
-              ishover ? "translate-x-0 " : "-translate-x-[110%]"
-            }`}
-            onMouseLeave={() => setIsHover(false)}
-          >
-            <div className={`hidden md:flex w-full 2xl:h-[85vh] xl:h-[90vh] lg:h-[90vh] md:h-[90vh] 2xl:pl-[4.3rem] xl:pl-[4rem] lg:pl-[2rem] md:pl-[2rem] overflow-y-auto`}>
-              <div
-                className={`w-full h-max flex flex-col justify-start 2xl:pt-8 xl:pt-7 lg:pt-6 md:pt-5 items-start 2xl:gap-4 xl:gap-3 lg:gap-2 md:gap-2`}
-              >
-                <h1 className="w-full pb-5 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl font-subMenuFont font-semibold">
-                  Explore QBC
-                </h1>
-                {Navdata.map((item, index) => (
-                  <div
-                    className="relative 2xl:w-72 xl:w-64 lg:w-60 md:w-60 2xl:h-24 xl:h-20 lg:h-16 md:h-[4.5rem] bg-slate-200 rounded-sm flex justify-center items-center hover:scale-105 duration-500 overflow-hidden"
-                    onMouseEnter={() => {
-                      setsidebtn(true);
-                      setsidebtnindex(index);
-                    }}
-                    onMouseLeave={() => {
-                      setsidebtn(false);
-                      setsidebtnindex(null);
-                    }}
-                  >
-                    <div
-                      className={`absolute  duration-700 w-full h-full ${
-                        sidebtn && sidebtnindex === index
-                          ? "opacity-100 scale-110"
-                          : "opacity-0 scale-100"
-                      } `}
-                    >
-                      <img
-                        src={item.src}
-                        className="w-full rounded-sm h-full object-cover"
-                      ></img>
-                    </div>
-                    <button className="z-50 2xl:text-xl md:text-base w-full h-full bg-black/30 text-left px-4 rounded-sm text-gray-100 font-NavMenuFont font-semibold ">
-                      {item.buttoname}
-                    </button>
-                  </div>
-                ))}
-                <div className="w-full h-[30%] mt-2 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 w-full">
-                    <h1 className="2xl:text-sm my-2 md:text-xs text-gray-600 font-subMenuFont font-extralight">
-                      CONTACT US
-                    </h1>
-                    <hr className="w-2/3 text-gray-300"></hr>
-                  </div>
-                  <button className="2xl:w-72 xl:w-64 lg:w-60 md:w-60 2xl:h-20 xl:h-20 lg:h-16 md:h-[4rem] bg-gray-200  hover:scale-95 duration-500 text-left px-4 2xl:text-lg md:text-sm rounded-sm">
-                    info@qbc.com
-                  </button>
-                  <button className="2xl:w-72 xl:w-64 lg:w-60 md:w-60 2xl:h-20 xl:h-20 lg:h-16 md:h-[4rem] bg-gray-200 hover:scale-95 duration-500 text-left px-4 2xl:text-lg md:text-sm rounded-sm">
-                    +917283748723
-                  </button>
-                </div>
-                <div className="w-full h-20 flex justify-between items-center ">
-                  <h1 className="2xl:text-sm md:text-xs font-subMenuFont font-extralight text-gray-600">
-                    FOLLOW US:
-                  </h1>
-                  <div className="flex w-2/3 justify-end px-4 gap-2">
-                    <FaFacebookF className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2 " />
-                    <FaInstagram className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2" />
-                    <FaLinkedinIn className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2" />
-                    <FaXTwitter className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
           <div
             className={`relative z-50 hidden md:flex justify-between w-[98%] p-1  ${
               scrolling ? "2xl:h-[5rem] xl:h-[4.3rem] lg:h-[3.5rem] md:h-[2.6rem] h-[2.5rem]" : "2xl:h-[5.5rem] xl:h-[4.8rem] lg:h-[4rem] md:h-[3.4rem] h-[3rem]"
@@ -226,6 +156,78 @@ const Navbar = () => {
             </div> 
           </div>
         </nav>
+        <div
+            className={` absolute z-40 2xl:w-[24rem] xl:w-[22rem] lg:w-20rem] md:w-[18rem]  h-full top-0 left-0 bottom-0 items-center  hidden md:flex flex-col duration-500 ${
+              ishover ? "translate-x-0 " : "-translate-x-[110%]"
+            }`}
+            onMouseLeave={() => setIsHover(false)}
+          >
+            <div className={` w-full  ${scrolling ? '2xl:h-[6rem] xl:h-[5rem] lg:h-[4rem] md:h-[3rem] h-[2.8rem] lg:pb-[4rem] xl:pb-20 pb-12 2xl:pb-24' : '2xl:h-[7rem] xl:h-[6rem] lg:h-[5rem] md:h-[4rem] h-[3.5rem] lg:pb-[4.5rem] xl:pb-20 pb-16 2xl:pb-24'}`}>
+            </div>
+            <div className={`relative  top-0 hidden md:flex w-full h-full bg-white  2xl:pl-[4.3rem] xl:pl-[4rem] lg:pl-[2rem] md:pl-[2rem] overflow-y-auto`}>
+              <div
+                className={`w-full h-max flex flex-col justify-start 2xl:pt-8 xl:pt-7 lg:pt-6 md:pt-5 items-start 2xl:gap-4 xl:gap-3 lg:gap-2 md:gap-2`}
+              >
+                <h1 className="w-full pb-5 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl font-subMenuFont font-semibold">
+                  Explore QBC
+                </h1>
+                {Navdata.map((item, index) => (
+                  <div
+                    className="relative 2xl:w-72 xl:w-64 lg:w-60 md:w-60 2xl:h-24 xl:h-20 lg:h-16 md:h-[4.5rem] bg-slate-200 rounded-sm flex justify-center items-center hover:scale-105 duration-500 overflow-hidden"
+                    onMouseEnter={() => {
+                      setsidebtn(true);
+                      setsidebtnindex(index);
+                    }}
+                    onMouseLeave={() => {
+                      setsidebtn(false);
+                      setsidebtnindex(null);
+                    }}
+                  >
+                    <div
+                      className={`absolute  duration-700 w-full h-full ${
+                        sidebtn && sidebtnindex === index
+                          ? "opacity-100 scale-110"
+                          : "opacity-0 scale-100"
+                      } `}
+                    >
+                      <img
+                        src={item.src}
+                        className="w-full rounded-sm h-full object-cover"
+                      ></img>
+                    </div>
+                    <button className="z-50 2xl:text-xl md:text-base w-full h-full bg-black/30 text-left px-4 rounded-sm text-gray-100 font-NavMenuFont font-semibold ">
+                      {item.buttoname}
+                    </button>
+                  </div>
+                ))}
+                <div className="w-full h-[30%] mt-2 flex flex-col gap-2">
+                  <div className="flex items-center gap-2 w-full">
+                    <h1 className="2xl:text-sm my-2 md:text-xs text-gray-600 font-subMenuFont font-extralight">
+                      CONTACT US
+                    </h1>
+                    <hr className="w-2/3 text-gray-300"></hr>
+                  </div>
+                  <button className="2xl:w-72 xl:w-64 lg:w-60 md:w-60 2xl:h-20 xl:h-20 lg:h-16 md:h-[4rem] bg-gray-200  hover:scale-95 duration-500 text-left px-4 2xl:text-lg md:text-sm rounded-sm">
+                    info@qbc.com
+                  </button>
+                  <button className="2xl:w-72 xl:w-64 lg:w-60 md:w-60 2xl:h-20 xl:h-20 lg:h-16 md:h-[4rem] bg-gray-200 hover:scale-95 duration-500 text-left px-4 2xl:text-lg md:text-sm rounded-sm">
+                    +917283748723
+                  </button>
+                </div>
+                <div className="w-full h-20 flex justify-between items-center ">
+                  <h1 className="2xl:text-sm md:text-xs font-subMenuFont font-extralight text-gray-600">
+                    FOLLOW US:
+                  </h1>
+                  <div className="flex w-2/3 justify-end px-4 gap-2">
+                    <FaFacebookF className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2 " />
+                    <FaInstagram className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2" />
+                    <FaLinkedinIn className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2" />
+                    <FaXTwitter className="rounded-full border-[1px] border-gray-400 2xl:w-8 2xl:h-8 md:w-7 md:h-7 p-2" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
         {/* mobile navbar */}
 
@@ -235,7 +237,7 @@ const Navbar = () => {
           </div>
         </nav> */}
 
-        <div className="absolute z-20 top-0 pt-32 2xl:w-[6.5rem] pb-2 xl:w-[5.8rem] lg:w-[4.8rem] md:w-[4rem] h-full border-r-[1px] border-gray-400 hidden md:flex flex-col justify-center gap-20 items-center">
+        {/* <div className="absolute z-20 top-0 pt-32 2xl:w-[6.5rem] pb-2 xl:w-[5.8rem] lg:w-[4.8rem] md:w-[4rem] h-full border-r-[1px] border-gray-400 hidden md:flex flex-col justify-center gap-20 items-center">
           <div
             className={`h-96 py-[1px] flex justify-center w-2 rounded-xl border-[1px] border-gray-400`}
           >
@@ -252,7 +254,7 @@ const Navbar = () => {
             <FaLinkedinIn className="2xl:text-4xl xl:text-2xl lg:text-xl md:text-lg p-1 border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
             <FaXTwitter className="2xl:text-4xl xl:text-2xl lg:text-xl md:text-lg p-1 border-[1px] border-white/50  bg-white/10 duration-500 rounded-full hover:bg-blue-300/40" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
