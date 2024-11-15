@@ -1,9 +1,9 @@
 import React from "react";
 import Navdata from "./Navdata";
 import { useEffect, useState } from "react";
-import Logo1 from "./assets/logo.png";
-import Logo2 from "./assets/logotext.png";
-import Subbg from "./assets/subnavbg5.png";
+import Logo1 from "../../assets/logo.png";
+import Logo2 from "../../assets/logotext.png";
+import Subbg from "../../assets/subnavbg5.png";
 import { IoMdCall } from "react-icons/io";
 import { IoMailOutline } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
@@ -24,6 +24,7 @@ const Navbar = () => {
   const [menu, setmenu] = useState(false);
   const [btn, setbtn] = useState(false);
   const [btnindex, setbtnindex] = useState(null);
+  const [width, setwidth] = useState('');
 
   const isMediumScreen = useMediaQuery({ query: "(min-width: 768px)" });
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -47,6 +48,12 @@ const Navbar = () => {
     };
   }, []);
 
+  const sidemenuwidthhandler = () => {
+    if(window.innerWidth < 768){
+      let crr = window.innerWidth/10+1;
+      setwidth(crr);}
+  }
+
   useEffect(() => {
     if (menu) {
       document.body.style.overflow = "hidden";
@@ -54,6 +61,11 @@ const Navbar = () => {
       document.body.style.overflow = "auto";
     }
 
+    if(window.innerWidth > 768){
+      setmenu(false)
+    }
+    sidemenuwidthhandler();
+    console.log(window.innerWidth);
     // Clean up on component unmount or when the menu closes
     return () => {
       document.body.style.overflow = "auto";
@@ -76,7 +88,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="flex justify-center">
+    <div className="relative z-50 flex justify-center">
       <div className="fixed overflow-hidden top-0 2xl:max-w-[120em] w-full h-full">
         <nav
           className={`absolute top-0 z-50 w-full flex justify-center items-center ${
@@ -186,7 +198,9 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <div className={`absolute z-30 top-0 right-0 w-[70%] h-screen bottom-0 duration-500 ${menu ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div 
+            style={{width:`${width}%`}}
+            className={`md:hidden absolute z-30 top-0 right-0  h-screen bottom-0 duration-500 ${menu ? 'translate-x-0' : 'translate-x-full'}`}>
               <div className={`w-full ${scrolling ? 'h-[2.8rem]' : 'h-[3.5rem]'}  `}></div>
               <div className="pl-8 pt-10 w-full h-full flex flex-col gap-5 bg-white overflow-y-auto justify-between">
                 <div className="flex flex-col gap-5">
@@ -234,7 +248,7 @@ const Navbar = () => {
         </nav>
         <div className={`w-full h-full duration-500 ${menu ? 'backdrop-blur-md' : 'backdrop-blur-0'}`} onMouseEnter={()=>setIsHover(false)}></div>
         <div
-            className={` absolute z-40 2xl:w-[24rem] xl:w-[22rem] lg:w-20rem] md:w-[18rem]  h-full top-0 left-0 bottom-0 items-center  hidden md:flex flex-col duration-500 ${
+            className={`absolute z-40 2xl:w-[24rem] xl:w-[22rem] lg:w-20rem] md:w-[18rem]  h-full top-0 left-0 bottom-0 items-center  hidden md:flex flex-col duration-500 ${
               ishover ? "translate-x-0 " : "-translate-x-[110%]"
             }`}
             onMouseLeave={() => setIsHover(false)}
@@ -309,7 +323,7 @@ const Navbar = () => {
         
 
         
-        <div className="absolute z-20 top-0 pt-32 2xl:w-[6.5rem] pb-2 xl:w-[5.8rem] lg:w-[4.8rem] md:w-[4rem] h-full border-r-[1px] border-gray-400 hidden md:flex flex-col justify-center gap-20 items-center">
+        <div className="backdrop-brightness-50 absolute z-20 top-0 pt-32 2xl:w-[6.5rem] pb-2 xl:w-[5.8rem] lg:w-[4.8rem] md:w-[4rem] h-full border-r-[1px] border-gray-400 hidden md:flex flex-col justify-center gap-20 items-center">
           <div
             className={`h-[80%] py-[1px] flex justify-center w-2 rounded-xl border-[1px] border-gray-400`}
           >
@@ -332,4 +346,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar
