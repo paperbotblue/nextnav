@@ -1,10 +1,18 @@
+import { motion } from "framer-motion"
+
 const Comp7 = () => {
   return (
     <div className="flex justify-center 2xl:min-h-[40em] items-center max-w-8xl mx-auto relative bg-gray-900 text-white font-sans">
       
       {/* Content Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl p-8 relative z-10">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[120em] md:pe-10 px-5 lg:pe-14 py-8 relative z-10">
+        
+        <motion.div className="md:ps-32"
+        initial={{ x: -200,  opacity: 0 }} 
+  whileInView={{ x: 0, opacity: 1 }} 
+              transition={{ duration: 0.8 }} // Smooth transition
+               whileHover={{ scale: 1.04 }}
+        >
           <h2 className="text-sm text-gray-400 mb-2">Why Us</h2>
           <h1 className="text-4xl font-bold mb-4">Exceptional quality that can’t be beaten.</h1>
           <p className="text-lg text-gray-300 mb-6">
@@ -13,8 +21,15 @@ const Comp7 = () => {
           <button className="flex items-center bg-white text-black px-4 py-2 rounded-full">
             <i className="fas fa-ellipsis-h mr-2"></i> Learn More
           </button>
-        </div>
-        <div className="space-y-6">
+        </motion.div>
+
+
+        <motion.div className="space-y-6"
+         initial={{ y: -200,  opacity: 0 }} 
+         whileInView={{ y: 0, opacity: 1 }} 
+              transition={{ duration: 0.8 }} // Smooth transition
+               whileHover={{ scale: 1.04 }}
+        >
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
             <div className="flex items-center mb-4">
               <div className="bg-gray-700 p-3 rounded-full mr-4">
@@ -37,7 +52,9 @@ const Comp7 = () => {
               Our team comprises seasoned professionals with years of experience in the construction field.
             </p>
           </div>
-        </div>
+        </motion.div>
+
+
       </div>
       
       {/* Four Vertical Bars */}

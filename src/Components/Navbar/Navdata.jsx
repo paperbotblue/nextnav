@@ -3,13 +3,15 @@ const Navdata = [
         id:1,
         buttoname:"Catalog",
         src:'https://media.istockphoto.com/id/170616024/photo/concrete-highrise-construction-site.jpg?s=612x612&w=0&k=20&c=7-lJj9c_WVakkqoM6WTCNu9Q-E7bV6goRzS0NBnKsCc=',
-        subbuthai:false
+        subbuthai: false,
+        add:'/catalog'
     },
     {
         id:2,
         buttoname:"Services",
         src:'https://media.istockphoto.com/id/170616024/photo/concrete-highrise-construction-site.jpg?s=612x612&w=0&k=20&c=7-lJj9c_WVakkqoM6WTCNu9Q-E7bV6goRzS0NBnKsCc=',
-        subbuthai:true,
+        subbuthai: true,
+        add:'/service',
         subbut:[
             {
                 id:1,
@@ -49,10 +51,18 @@ const Navdata = [
         id:4,
         buttoname:"Achievements",
         src:'https://media.istockphoto.com/id/170616024/photo/concrete-highrise-construction-site.jpg?s=612x612&w=0&k=20&c=7-lJj9c_WVakkqoM6WTCNu9Q-E7bV6goRzS0NBnKsCc=',
-        subbuthai:false
+        subbuthai: false,
+        add:'/achievement'
     },
     {
         id:5,
+        buttoname:"Career",
+        src:'https://media.istockphoto.com/id/170616024/photo/concrete-highrise-construction-site.jpg?s=612x612&w=0&k=20&c=7-lJj9c_WVakkqoM6WTCNu9Q-E7bV6goRzS0NBnKsCc=',
+        subbuthai: false,
+        add:'/career'
+    },
+    {
+        id:6,
         buttoname:"About us",
         src:'https://media.istockphoto.com/id/170616024/photo/concrete-highrise-construction-site.jpg?s=612x612&w=0&k=20&c=7-lJj9c_WVakkqoM6WTCNu9Q-E7bV6goRzS0NBnKsCc=',
         subbuthai:true,
