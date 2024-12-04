@@ -1,78 +1,66 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import Navbar from './Components/Navbar/Navbar.jsx'
-import { Outlet, RouterProvider, createBrowserRouter  } from 'react-router-dom'
-import About from './Components/About/About.jsx'
-import Services from './Components/Sevices/Services'
-import Catalog from './Components/Catalog/Catalog.jsx'
-import Achievement from './Components/Achievement/Achievement.jsx'
-import Contact from './Components/Contact/Contact.jsx'
-import Career from './Components/career/Career.jsx'
-import NextAdmin from './Components/admin/NextAdmin.jsx'
-import Login from './Components/adminFirstPage/Login.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import  store  from './store/store';
+import './index.css';
+import App from './App.jsx';
+import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { About, Services, Catalog, Career, Contact, Achievement, Login, NextAdmin, Navbar, AuthLayout } from './Components';
+import Verification from './Components/adminFirstPage/Verification.jsx';
+import ChangePassword from './Components/adminFirstPage/ChangePassword.jsx';
 
-const Layout = () => {
-  return (
-    <div>
-      <Navbar />
-      <Outlet/>
-    </div>
-    
-  )
-}
+const Layout = () => (
+  <div>
+    <Navbar />
+    <Outlet />
+  </div>
+);
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      {
-        path: '/',
-        element: <App />,
-      },
-      {
-        path: '/about',
-        element:<About/>
-      },
-      {
-        path: '/service',
-        element:<Services/>
-      },
-      {
-        path: '/catalog',
-        element:<Catalog/>
-      },
-      {
-        path: '/achievement',
-        element:<Achievement/>
-      },
-      {
-        path: '/contact',
-        element:<Contact/>
-      },
-      {
-        path:'/career',
-        element:<Career/>
-      },
-      
-    ]
+      { path: '/', element: <App /> },
+      { path: '/about', element: <About /> },
+      { path: '/service', element: <Services /> },
+      { path: '/catalog', element: <Catalog /> },
+      { path: '/achievement', element: <Achievement /> },
+      { path: '/contact', element: <Contact /> },
+      { path: '/career', element: <Career /> },
+    ],
   },
   {
-    path:'/admin',
-    element:<Login/>
+    path: '/admin',
+    element: (
+      <AuthLayout authentication={false}>
+        <Login />
+      </AuthLayout>
+    )
   },
   {
-    path:'/adminhome',
-    element:<NextAdmin/>
-  }
+    path:'/forgate',
+    element: <Verification/>
+  },
+  {
+    path:'/ChangePassword',
+    element: <ChangePassword/>
+  },
+  {
+    path: '/adminhome',
+    element: (
+      <AuthLayout authentication>
+        {" "}
+        <NextAdmin />
+      </AuthLayout>
+    ),
+  },
 ]);
-
-
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}/>
-  </StrictMode>,
-)
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </StrictMode>
+);

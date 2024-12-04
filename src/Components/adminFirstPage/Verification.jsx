@@ -4,10 +4,10 @@ import Logo from '../../assets/logo.png'
 // import { MdOutlineReportGmailerrorred } from "react-icons/md";
 import { IoShieldCheckmark } from "react-icons/io5";
 import ErrorIcon from '../../assets/error.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Verification = () => {
-   
+   const navigate = useNavigate()
     const [error, setError] = useState("");
     const [verify, setVerify] = useState(false);
 
@@ -29,9 +29,9 @@ const Verification = () => {
         </div>
         
         {error && <p className='w-full border rounded-md border-red-600/50 px-3 py-4 text-red-600 text-base font-medium tracking-wide'>{error}</p>}
-        <Link to={error ? '/forget' : '/change'} className="w-1/3 mt-5 text-center mx-auto py-2 bg-sky-600 text-xl text-white font-semibold border hover:bg-sky-700 hover:border-gray-200/70 duration-200 border-gray-200/50 tracking-wide rounded-md select-none ">
+        <button onClick={()=>error ? navigate('/forgate') : navigate('/ChangePassword')} className="w-1/3 mt-5 text-center mx-auto py-2 bg-sky-600 text-xl text-white font-semibold border hover:bg-sky-700 hover:border-gray-200/70 duration-200 border-gray-200/50 tracking-wide rounded-md select-none ">
               {error ? "Try Again" : "Next"}
-        </Link>
+        </button>
         </div>
     </FirstPageContainer>
   )

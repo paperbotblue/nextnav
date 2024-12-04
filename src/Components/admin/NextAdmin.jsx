@@ -7,6 +7,8 @@ import AddAndUpdate from "./AddAndUpdate";
 import { IoMdClose } from "react-icons/io";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import {useDispatch, useSelector} from 'react-redux'
+import { logout } from "../../store/authslice";
 
 const NextAdmin = () => {
   const [selectedCard, setSelectedCard] = useState(null); // State for the clicked card
@@ -16,6 +18,7 @@ const NextAdmin = () => {
   const [mode, setMode] = useState("Add")
   const [initialData , setInitialData] = useState(null)
 
+  const dispatch = useDispatch()
 
   const handleUpdateClick = (card) => {
 
@@ -134,7 +137,7 @@ const NextAdmin = () => {
               </h1>
             ))}
           </motion.div>
-          <button style={{ padding: "0.5rem 1rem" }}>Logout</button>
+          <button style={{ padding: "0.5rem 1rem" }} onClick={()=>dispatch(logout())}>Logout</button>
         </motion.nav>
         <div className="w-full h-[3.5rem]"></div>
 

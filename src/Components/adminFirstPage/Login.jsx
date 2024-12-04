@@ -5,7 +5,8 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import FirstPageContainer from "./FirstPageContainer";
 import { Link, useNavigate } from "react-router-dom";
 import ErrorIcon from '../../assets/error.png'
-
+import {useDispatch} from 'react-redux'
+import { login } from '../../store/authslice'
 
 
 
@@ -14,13 +15,14 @@ const Login = () => {
   const [error, setError] = useState("");
   const [visible, setVisible] = useState(false);
 
-  // const naviget = useNavigate()
+  const dispatch = useDispatch()
+  const naviget = useNavigate()
 
   const passwordShow = () => {
     const inputbtn = document.getElementById("password"); 
     if (inputbtn.type === "password") {
       inputbtn.type = "text";
-      setVisible(true);
+      setVisible();
     } else {
       inputbtn.type = "password";
       setVisible(false);
@@ -30,6 +32,8 @@ const Login = () => {
   const onSubmit = (data) => {
     try {
       console.log(data);
+      naviget('/adminhome')
+      dispatch(login())
     } catch (error) {
       setError(error.message);
     }
@@ -103,11 +107,11 @@ const Login = () => {
               {errors.password && <p className="text-sm text-red-500 pl-3 select-none">{errors.password.message}</p>}
             </div>
             <div className="w-full flex justify-end">
-              <Link to='/forget'>
-              <button className="select-none text-blue-300 cursor-pointer hover:text-blue-500 font-semibold tracking-wide duration-75">
+              
+              <button className="select-none text-blue-300 cursor-pointer hover:text-blue-500 font-semibold tracking-wide duration-75" onClick={()=>naviget('/forgate')}>
                 Forget Password&nbsp;&nbsp;&#63;
               </button>
-              </Link>
+              
             </div>
             <button
               type="submit"
