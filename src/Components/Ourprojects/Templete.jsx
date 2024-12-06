@@ -67,7 +67,7 @@ const Completed = ({data,name}) => {
 
   return (
     <div
-    className="relative  w-full h-screen max-w-[120em] mx-auto">
+    className="relative  w-full h-full max-w-[120em] mx-auto">
       <div className="w-full h-full">
         <div className="relative w-full h-[40rem] flex items-center justify-center bg-gray-100 rounded-lg">
           <AnimatePresence>
@@ -88,8 +88,8 @@ const Completed = ({data,name}) => {
             {name}
           </h1>
         </div>
-        <div className="relative w-full flex">
-          <New data={data}/>
+        <div className="w-full flex">
+          <New data={data} />
         </div>
       </div>
     </div>

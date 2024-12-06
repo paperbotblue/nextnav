@@ -29,7 +29,7 @@ const AnimatedComponent = ({data}) => {
   };
 
   return (
-    <div className="container mx-auto max-w-[120em] py-5 w-full h-[55rem] 2xl:w-[120em] bg-black/20 flex flex-col sm:flex-row justify-between gap-4 items-center px-8">
+    <div className="container relative mx-auto max-w-[120em] py-5 w-full h-[55rem] 2xl:w-[120em] bg-black/20 flex flex-col sm:flex-row justify-between gap-4 items-center px-8">
       {/* Left Section */}
       <div 
     //   style={{backgroundImage: `url(${Bg})`}}
@@ -110,7 +110,7 @@ const AnimatedComponent = ({data}) => {
       <div className="right-section relative w-full sm:w-1/2 grid grid-cols-3 auto-rows-[300px] gap-4 overflow-y-auto h-full p-4">
         {data.map((card, index) => (
           <motion.div
-          onClick={()=>{navigate('/cardtemplate'); dispatch(tempData(card))}}
+          onClick={()=>{navigate('/cardtemplate'); dispatch(tempData(card)); window.scrollTo({top: 0, behavior: 'smooth'})}}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05, zIndex: 40 , duration: 0.5}}
             className="card z-30 cursor-pointer relative flex group  justify-center items-center rounded-se-3xl rounded-es-3xl hover:shadow-xl bg-gray-200 border border-gray-400  overflow-hidden"

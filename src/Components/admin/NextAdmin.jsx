@@ -11,6 +11,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import { logout } from "../../store/authslice";
 
 const NextAdmin = () => {
+  const [show, setShow] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null); // State for the clicked card
   const [activeCategory, setActiveCategory] = useState(CardsData[0]); // Active category for cards
   const [Feedback, setFeedback] = useState(true);
@@ -96,6 +97,8 @@ const NextAdmin = () => {
           flexDirection: "column",
           justifyContent: "center",
           maxWidth: "120em",
+          height: "100vh",
+          overflow: "hidden",
           margin: "0 auto",
           width: "100%",
           backgroundColor: "rgba(0,0,0,0.7)",
@@ -146,6 +149,8 @@ const NextAdmin = () => {
           style={{
             backgroundImage: `url(${BG})`,
             width: "100%",
+            height: "100vh",
+            overflow: "auto",  
             position: "relative",
             padding: "1rem",
           }}
@@ -212,7 +217,7 @@ const NextAdmin = () => {
                 whileHover={{ scale: 1.05 }}
                 key={card.id}
                 layoutId={`${card.id}`}
-                onClick={() => handleCardClick(card)}
+                onClick={() => {handleCardClick(card);setShow(true)}}
                 whileTap={{ scale: 0.95 }}
                 style={{
                   display: "flex",
@@ -246,7 +251,7 @@ const NextAdmin = () => {
                       ? "text-2xl py-2 px-4 border-white/40"
                       : "text-base py-1 h-max px-2 border-white/70"
                   }  backdrop-blur-md text-blue-600 rounded-lg border  hover:border-blue-600/70 `}
-                  onClick={() => {Feedback ? handleUpdateClick(card) : FeedbackHandlerAccept(card.id)}}
+                  onClick={(e) => {e.stopPropagation(); {Feedback ? handleUpdateClick(card) : FeedbackHandlerAccept(card.id)} setShow(false)}}
                 >
                   {Feedback ? <MdOutlineModeEditOutline /> : "Accept"}
                 </button>
@@ -256,7 +261,13 @@ const NextAdmin = () => {
                       ? "text-2xl py-2 px-4 border-white/40"
                       : "text-base py-1 h-max px-2 border-white/70 "
                   } px-4 text-2xl py-2 text-red-700 backdrop-blur-md rounded-lg border border-white/40 hover:border-red-600/70 `}
-                  onClick={()=>{Feedback ? handleDeleteCard(card.id) : activeCategory.id===4 ? FeedbackHandlerDelete(card.id) : FeedbackHandlerReject(card.id) }}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the card click
+                    if (Feedback) handleDeleteCard(card.id);
+                    else if (activeCategory.id === 4) FeedbackHandlerDelete(card.id);
+                    else FeedbackHandlerReject(card.id);
+                    setShow(false);
+                  }}
                 >
                   {Feedback ? <RiDeleteBin6Fill /> : activeCategory.id===4 ? "Delete" : "Reject"}
                 </button>
@@ -266,10 +277,10 @@ const NextAdmin = () => {
           </motion.div>
 
           <AnimatePresence>
-            {selectedCard && (
+            {show && (
               <motion.div
                 
-                layoutId={`${selectedCard.id}`}
+                layoutId={show && `${selectedCard.id}`}
                 style={{
                   position: "fixed",
                   top: `${extendedCardPosition}`,
@@ -327,7 +338,7 @@ const NextAdmin = () => {
                   <p>{!Feedback && selectedCard.description}</p>
                 </div>
                 <button
-                  onClick={() => setSelectedCard(null)}
+                  onClick={() => {setSelectedCard(null); setShow(false)}}
                   style={{
                     marginTop: "1rem",
                     padding: "0.5rem 1rem",

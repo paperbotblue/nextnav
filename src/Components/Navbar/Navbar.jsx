@@ -334,8 +334,8 @@ const Navbar = () => {
                         className="w-full rounded-sm h-full object-cover"
                       ></img>
                     </div>
-                    <NavLink to={item.add} className="z-50 flex items-center 2xl:text-xl md:text-base w-full h-full bg-black/30 text-left px-4 rounded-sm text-gray-100 font-NavMenuFont font-semibold ">
-                    <button >
+                    <NavLink to={item.add} onClick={()=>setIsHover(false)} className="z-50 flex items-center 2xl:text-xl md:text-base w-full h-full bg-black/30 text-left px-4 rounded-sm text-gray-100 font-NavMenuFont font-semibold ">
+                    <button>
                       {item.buttoname}
                       </button>
                     </NavLink>

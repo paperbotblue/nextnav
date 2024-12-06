@@ -16,18 +16,22 @@ const CardTemplate = () => {
   };
 
   return (
-    <div className="w-full max-w-[120em] bg-slate-300 h-screen pt-32 relative" >
+    <div 
+    style={{backgroundImage:`url("https://images.pexels.com/photos/12255/pexels-photo-12255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`, backgroundSize: 'cover',backgroundRepeat:'no-repeat',}}
+    className="w-full max-w-[120em] mx-auto h-screen pt-32 relative" >
       {/* Main Layout */}
-      <div className="flex w-full h-full bg-slate-600">
+      <div className="flex w-full h-full">
         {/* Left Section */}
         <div
-        // style={{backgroundImage: `url(${data.images[0].src})`, backgroundSize: 'cover'}}
-        className="flex pl-28 w-[60%] h-full bg-slate-200 flex-col justify-center items-start gap-6">
-          <h1 className="text-4xl font-bold w-4/5 flex justify-between "><span className="text-4xl text-blue-700">Project : </span>{data.name}</h1>
-          <h1 className="text-xl font-medium w-4/5 flex justify-between"><span className="text-2xl text-blue-700">Owner/Client : </span>{data.owner}</h1>
-          <h1 className="text-xl font-medium w-4/5 flex justify-between"><span className="text-2xl text-blue-700">Consultant : </span>{data.consultant}</h1>
-          <h1 className="text-xl font-medium w-4/5 flex justify-between"><span className="text-2xl text-blue-700">Location : </span>{data.location}</h1>
-          <p className="w-[80%] flex flex-col gap-2 font-medium text-balance"><span className="text-2xl text-blue-700 font-medium">Project details : </span>{data.description}</p>
+        
+        className="flex pl-10 w-[60%] h-full flex-col justify-center items-center gap-6">
+          <div className="w-[80%] h-max py-10 gap-6 rounded-3xl backdrop-blur-sm bg-black/40 border-gray-300 border-[1px] flex flex-col items-center justify-center">
+          <h1 className="text-4xl font-bold w-4/5  text-white border-b-[1px] border-gray-300 flex pb-3 justify-between "><span className="text-4xl text-blue-500">Project : </span>{data.name}</h1>
+          <h1 className="text-xl font-medium w-4/5 text-white border-b-[1px] border-gray-300  flex pb-3 justify-between"><span className="text-2xl text-blue-500">Owner/Client : </span>{data.owner}</h1>
+          <h1 className="text-xl font-medium w-4/5 text-white border-b-[1px] border-gray-300  flex pb-3 justify-between"><span className="text-2xl text-blue-500">Consultant : </span>{data.consultant}</h1>
+          <h1 className="text-xl font-medium w-4/5 text-white border-b-[1px] border-gray-300  flex pb-3 justify-between"><span className="text-2xl text-blue-500">Location : </span>{data.location}</h1>
+          <p className="w-[80%] flex flex-col gap-2 font-medium text-white text-balance"><span className="text-2xl text-blue-500 font-medium">Project details : </span>{data.description}</p>
+          </div>
         </div>
 
         {/* Right Section - Grid of Cards */}
@@ -37,7 +41,7 @@ const CardTemplate = () => {
               {data.images.map((image) => (
                 <motion.div
                   key={image.id}
-                  className="relative cursor-pointer w-full h-full rounded-se-3xl rounded-es-3xl overflow-hidden"
+                  className="relative border-[1px] border-gray-400 cursor-pointer w-full h-full rounded-se-3xl rounded-es-3xl overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   onClick={() => handleCardClick(image)}
                 >
