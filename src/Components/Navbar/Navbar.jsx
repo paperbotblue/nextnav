@@ -13,7 +13,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 import { WiSnow } from "react-icons/wi";
 // import Navdata from './Navdata';
 
@@ -27,6 +27,8 @@ const Navbar = () => {
   const [btn, setbtn] = useState(false);
   const [btnindex, setbtnindex] = useState(null);
   const [width, setwidth] = useState('');
+
+  const navigate = useNavigate();
 
   // const isIphone = useMediaQuery({query: "(min-width: 450px)"})
   // const isMediumScreen = useMediaQuery({ query: "(min-width: 768px)" });
@@ -166,7 +168,7 @@ const Navbar = () => {
                             className={`w-full gap-4 px-4 py-6 rounded-lg border-[2px] border-gray-200 bg-black/50 backdrop-blur-2xl h-full mt-10 flex flex-col items-start`}
                           >
                             {item.subbut.map((sub) => (
-                              <button className="text-white text-base font-subMenuFont border-b-[1px] pb-2 w-full text-left hover:scale-105 duration-300">
+                              <button className="text-white text-base font-subMenuFont border-b-[1px] pb-2 w-full text-left hover:scale-105 duration-300" onClick={()=>navigate(sub.link)}>
                                 {sub.subbutname}
                               </button>
                             ))}

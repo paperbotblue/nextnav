@@ -39,11 +39,13 @@ const Navdata = [
         subbut:[
             {
                 id:1,
-                subbutname:"Texthere"
+                link:'/completed',
+                subbutname:"Completed"
             },
             {
                 id:2,
-                subbutname:"Texthere"
+                link:'/Ongoing',
+                subbutname:"Ongoing"
             }
         ]
     },

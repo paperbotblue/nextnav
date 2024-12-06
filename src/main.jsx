@@ -5,7 +5,7 @@ import  store  from './store/store';
 import './index.css';
 import App from './App.jsx';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { About, Services, Catalog, Career, Contact, Achievement, Login, NextAdmin, Navbar, AuthLayout } from './Components';
+import { About, Services, Catalog, Career, Contact, Achievement, Login, NextAdmin, Navbar, AuthLayout,Completed, Ongoing, CardTemplate,Footer } from './Components';
 import Verification from './Components/adminFirstPage/Verification.jsx';
 import ChangePassword from './Components/adminFirstPage/ChangePassword.jsx';
 
@@ -13,6 +13,7 @@ const Layout = () => (
   <div>
     <Navbar />
     <Outlet />
+    <Footer/>
   </div>
 );
 
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
       { path: '/achievement', element: <Achievement /> },
       { path: '/contact', element: <Contact /> },
       { path: '/career', element: <Career /> },
+      { path: '/completed', element: <Completed /> },
+      { path: '/Ongoing', element: <Ongoing /> },
+      { path: '/cardtemplate', element: <CardTemplate /> },
     ],
   },
   {

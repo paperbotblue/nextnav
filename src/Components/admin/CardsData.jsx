@@ -1,4 +1,4 @@
-import CardBG from "../../assets/BG2.jpg"
+
 const CardsData = [
     {
     id: 1,
@@ -10,14 +10,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -27,14 +26,13 @@ const CardsData = [
             location:'gnmmmmmmmmmmmm',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -44,14 +42,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -61,14 +58,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -78,14 +74,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -95,14 +90,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -112,14 +106,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -129,14 +122,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -146,14 +138,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -163,28 +154,26 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
         {
             id: 11,
             name: 'Project 1',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://www.gettyimages.in/detail/video/growing-tree-stock-footage/2181662163" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg" },
+                { id: 4, src: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 5, src: "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg" },
+                { id: 6, src: "https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },
@@ -257,14 +246,13 @@ const CardsData = [
             location:'ghflk;jasdfklha',
             owner:'lkjhlkajshdfkhj',
             consultant:'jkhkjlhskldf',
-            images:[
-                {id:1,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:2,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:3,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:4,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:5,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                {id:6,src:"https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"},
-                
+            images: [
+                { id: 1, src: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 2, src: "https://images.pexels.com/photos/4418939/pexels-photo-4418939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+                { id: 3, src: "https://images.pexels.com/photos/1054289/pexels-photo-1054289.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 4, src: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 5, src: "https://images.pexels.com/photos/1227513/pexels-photo-1227513.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { id: 6, src: "https://images.pexels.com/photos/1241368/pexels-photo-1241368.jpeg?auto=compress&cs=tinysrgb&w=600" },
             ],
             description: 'This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 v This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1 This is a project 1',
         },

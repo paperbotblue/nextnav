@@ -11,6 +11,10 @@ import FeedbackForm from './feedbackform/FeedbackForm'
 import Services from './Sevices/Services'
 import NextAdmin from './admin/NextAdmin'
 import AuthLayout from './AuthLayout'
+import Completed from './Ourprojects/Completed'
+import Ongoing from './Ourprojects/Ongoing'
+import CardTemplate from './Ourprojects/CardTemplate'
+import Footer from './Footer/Footer'
 
 
 export {
@@ -26,5 +30,9 @@ export {
     FeedbackForm,
     Services,
     NextAdmin,
-    AuthLayout
+    AuthLayout,
+    Completed,
+    Ongoing,
+    CardTemplate,
+    Footer
 }
