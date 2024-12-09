@@ -24,6 +24,15 @@ const FeedbackSlider = () => {
         },
       },
     },
+    pullBack: {
+      x: ["3%", "0%"], // Pull back slightly and resume
+      transition: {
+        x: {
+          duration: 0.5, // Pull-back duration
+          ease: "easeOut",
+        },
+      },
+    },
   };
 
   return (
@@ -40,7 +49,7 @@ const FeedbackSlider = () => {
       <motion.div
         className="flex  space-x-10 w-max h-full items-start mt-20"
         variants={sliderVariants}
-        animate={ishover ? 'stop' : "animate"}
+        animate={ishover ? "pullBack" : "animate"}
         
         >
 
