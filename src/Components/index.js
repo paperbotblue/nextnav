@@ -15,6 +15,7 @@ import Completed from './Ourprojects/Completed'
 import Ongoing from './Ourprojects/Ongoing'
 import CardTemplate from './Ourprojects/CardTemplate'
 import Footer from './Footer/Footer'
+import Feedbacks from './feedbackform/Feedbacks'
 
 
 export {
@@ -34,5 +35,6 @@ export {
     Completed,
     Ongoing,
     CardTemplate,
-    Footer
+    Footer,
+    Feedbacks
 }

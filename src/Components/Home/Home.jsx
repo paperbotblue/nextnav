@@ -1,11 +1,7 @@
 import  { useEffect, useState } from 'react';
-import Comp2 from "./Comp2";
-import Comp4 from "./Comp4";
-import Comp5 from "./Comp5";
-import Comp6 from "./Comp6";
-import Comp7 from "./Comp7";
+import {Comp2, Comp4, Comp5, Comp6, Comp7, Comp8} from './index'
+import {Feedbacks} from '../index'
 import dubai from "../../assets/Dubai.mp4"
-import Comp8 from './Comp8';
 import FeedbackForm from '../feedbackform/FeedbackForm'
 import { motion } from "framer-motion"
 
@@ -151,6 +147,7 @@ const Home = () => {
       
       <Comp7 />
       <Comp8 />
+      <Feedbacks/>
       <FeedbackForm/>
     </div>
   );

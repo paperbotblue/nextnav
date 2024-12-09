@@ -38,7 +38,17 @@ const Navbar = () => {
   //   query: "(min-width: 1536px)",
   // });
 
-  
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsButtonClicked((prev) => !prev); // Toggle the clicked state
+  };
+
+  const handleMouseEnter = () => {
+    if (isButtonClicked) {
+      setIsButtonClicked(false); // Reset clicked state on hover
+    }
+  };
 
   const handleScroll2 = () => {
     const totalHeight =
@@ -63,23 +73,23 @@ const Navbar = () => {
       setwidth(crr);}
   }
 
-  useEffect(() => {
-    if (ishover || menu) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+  // useEffect(() => {
+  //   if (ishover || menu) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
 
-    if(window.innerWidth > 768){
-      setmenu(false)
-    }
-    sidemenuwidthhandler();
-    console.log(window.innerWidth);
-    // Clean up on component unmount or when the menu closes
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [ishover, menu]);
+  //   if(window.innerWidth > 768){
+  //     setmenu(false)
+  //   }
+  //   sidemenuwidthhandler();
+    
+  //   // Clean up on component unmount or when the menu closes
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, [ishover, menu]);
 
   const handleScroll = () => {
     if (window.scrollY > 30) {
@@ -150,17 +160,17 @@ const Navbar = () => {
                     <div
                       className={`relative group  ${scrolling ? "2xl:h-[2.5rem] xl:h-[2rem] lg:h-[1.5rem] md:h-[1.5rem]" : "2xl:h-[3rem] xl:h-[2.5rem] lg:h-[2rem] md:h-[1.5rem]"}`}
                     >
-                      <NavLink to={item.add} onClick={()=>window.scrollTo({top: 0, behavior:"smooth"})}>
+                      <NavLink to={item.add} onClick={()=>{window.scrollTo({top: 0, behavior:"smooth"});handleButtonClick()}} onMouseEnter={handleMouseEnter}>
                       <button
-                        className={` w-max  2xl:px-3 xl:px-2 lg:px-2 md:px-1 h-full group 2xl:text-lg xl:text-base lg:text-xs  text-[0.65rem] font-extralight font-NavMenuFont`}
+                        className={` w-max  2xl:px-3 xl:px-2 lg:px-2 md:px-1 h-full ${isButtonClicked&&'group'} 2xl:text-lg xl:text-base lg:text-xs  text-[0.65rem] font-extralight font-NavMenuFont`}
                       >
                         {item.buttoname}
-                        <div className=" w-0 duration-500 h-[2px] group-hover:w-full bg-black "></div>
+                        <div className={` w-0 duration-500 h-[2px] ${!isButtonClicked&&'group-hover:w-full'} bg-black `}></div>
                         </button>
                         </NavLink>
                       {item.subbuthai && (
                         <div
-                          className={`bg-transparent absolute overflow-hidden group-hover:translate-y-2 group-hover:h-max duration-500 bg-slate-500 h-0 ${
+                          className={`bg-transparent absolute ${isButtonClicked ?  'overflow-hidden' : 'group-hover:translate-y-2 group-hover:h-max overflow-hidden'} duration-500 bg-slate-500 h-0 ${
                             scrolling ? "2xl:top-[1.5rem] xl:top-[1.5rem] lg:top-[1rem] md:top-[1rem] 2xl:w-[13rem] xl:w-[12rem] lg:w-[11rem] md:w-[10rem]" : "2xl:top-[2.5rem] xl:top-[1.5rem] lg:top-[1rem] md:top-[1rem] 2xl:w-[14rem] xl:w-[13rem] lg:w-[12rem] md:w-[11rem]"
                           }`}
                         >
@@ -168,7 +178,7 @@ const Navbar = () => {
                             className={`w-full gap-4 px-4 py-6 rounded-lg border-[2px] border-gray-200 bg-black/50 backdrop-blur-2xl h-full mt-10 flex flex-col items-start`}
                           >
                             {item.subbut.map((sub) => (
-                              <button className="text-white text-base font-subMenuFont border-b-[1px] pb-2 w-full text-left hover:scale-105 duration-300" onClick={()=>navigate(sub.link)}>
+                              <button className="text-white text-base font-subMenuFont border-b-[1px] pb-2 w-full text-left hover:scale-105 duration-300" onClick={()=>{navigate(sub.link); handleButtonClick() }}>
                                 {sub.subbutname}
                               </button>
                             ))}

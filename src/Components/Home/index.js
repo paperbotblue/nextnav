@@ -1,0 +1,8 @@
+import Comp2 from "./Comp2";
+import Comp4 from "./Comp4";
+import Comp5 from "./Comp5";
+import Comp6 from "./Comp6";
+import Comp7 from "./Comp7";
+import Comp8 from "./Comp8";
+
+export { Comp2, Comp4, Comp5, Comp6, Comp7, Comp8 };
