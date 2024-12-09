@@ -6,7 +6,7 @@ import b2 from '../../assets/HomeImg/b3.jpeg'
 const Comp2 = () => {
 
   return (
-    <div className="flex flex-col items-center md:mt-28  justify-center w-full  md:pl-[10em]  md:pr-24 lg:pr-10  bg-gray-100 p-4">
+    <div className="flex flex-col items-center md:mt-28  justify-center w-full  md:pl-[10em]  md:pr-24 lg:pr-10 p-4">
       {/* First Section */}
       <div className="flex flex-col md:flex-row w-full mx-3 md:mx-10 max-w-[110em] bg-white rounded-lg shadow-lg overflow-hidden mb-8">
         {/* Text Section */}

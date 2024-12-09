@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import civil from "../../assets/HomeImg/civil.jpg";
+import { motion } from "framer-motion";
 
 const Comp8 = () => {
   const statsData = [
@@ -61,10 +62,10 @@ const Comp8 = () => {
   };
 
   return (
-    <div className="bg-white relative flex justify-center">
-      <div className="max-w-[120em] w-full md:pl-[5em] lg:pl-[8em]">
+    <div className=" relative flex justify-center">
+      <div className="max-w-[120em] w-full md:pl-[5em] lg:pl-[6em] bg-gradient-to-t from-[#47719b]/80 via-[#111827]/80 to-[#111827]">
         <div className="text-center py-8">
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 px-4">
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-100 px-4 mt-10 mb-5">
             We design places that connect people to their environment.
           </h1>
         </div>
@@ -80,9 +81,9 @@ const Comp8 = () => {
 
           <div
             ref={statsRef} // Attach the reference for visibility detection
-            className="bg-blue-900 text-white py-10 w-full  rounded-lg"
+            className=" text-white py-10 w-full mb-10 rounded-lg"
           >
-            <div className="max-w-full mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
+            <div className="max-w-full mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
               {statsData.map((stat, index) => (
                 <div
                   key={index}
@@ -98,10 +99,13 @@ const Comp8 = () => {
               ))}
             </div>
 
-            <div className="text-center mt-6">
-              <button className="border-2 text-white px-8 py-3 md:px-12 md:py-4 rounded-full hover:bg-blue-700 transition duration-300">
+            <div className="text-center mt-16">
+              <motion.button
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05, backgroundColor: "#1a365d" }}
+              className="border-2 text-white px-8 py-3 md:px-12 md:py-4 rounded-3xl">
                 Contact Us
-              </button>
+              </motion.button>
             </div>
           </div>
 

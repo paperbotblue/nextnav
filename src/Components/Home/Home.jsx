@@ -32,7 +32,7 @@ const Counter = ({ targetNumber }) => {
 const Home = () => {
   return (
     <div className="flex flex-col ">
-      <div className="bg-gray-100 font-roboto relative flex justify-center items-start ">
+      <div className=" font-roboto relative flex justify-center items-start ">
         {/* Container with max-width 100em, centered */}
         <div
           className="relative max-w-[120em] 2xl:max-h-[50em] w-full h-[100%] pt-10 md:h-[75vh] lg:h-[90vh] bg-cover bg-center"
