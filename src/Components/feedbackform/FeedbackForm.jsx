@@ -1,7 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
 import FeedbackBg from '../../assets/feedback2.jpg';
+>>>>>>> 4ef983178cb874781936e97d3380cebb150fdc88
 
 const FeedbackForm = () => {
     const {

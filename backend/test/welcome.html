@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-semibold">MyWebsite</a>
+            <div class="space-x-4">
+                <a href="#about" class="text-white hover:text-blue-300">About</a>
+                <a href="#services" class="text-white hover:text-blue-300">Services</a>
+                <a href="#contact" class="text-white hover:text-blue-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-700 text-white h-screen flex items-center justify-center">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-bold">Welcome to My Website!</h1>
+            <p class="mt-4 text-lg md:text-xl">We are glad to have you here. Explore and enjoy our services.</p>
+            <a href="#services" class="mt-6 inline-block px-6 py-3 text-lg bg-yellow-500 text-blue-800 rounded-lg hover:bg-yellow-400">Explore Services</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white py-20 text-center">
+        <h2 class="text-3xl font-semibold text-blue-800">About Us</h2>
+        <p class="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">We provide top-notch services with the highest quality and professional approach. Our goal is to help you achieve success and growth with a personalized strategy.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-gray-200 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-blue-800">Our Services</h2>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold text-blue-800">Web Development</h3>
+                    <p class="mt-2 text-gray-600">Build modern, responsive websites that are optimized for performance and SEO.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold text-blue-800">App Development</h3>
+                    <p class="mt-2 text-gray-600">Create cross-platform mobile applications with a seamless user experience.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold text-blue-800">Digital Marketing</h3>
+                    <p class="mt-2 text-gray-600">Grow your online presence through targeted campaigns and brand building strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-600 py-20 text-center text-white">
+        <h2 class="text-3xl font-semibold">Contact Us</h2>
+        <p class="mt-4 text-lg">Have any questions or want to discuss your project? Feel free to reach out to us!</p>
+        <a href="mailto:info@mywebsite.com" class="mt-6 inline-block px-6 py-3 text-lg bg-yellow-500 text-blue-800 rounded-lg hover:bg-yellow-400">Email Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4 text-center">
+        <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
