@@ -8,7 +8,7 @@ import FeedbackBg from "../../assets/feedbackBg.jpg";
 const FeedbackSlider = () => {
     const [ishover, setIshover] = useState(false)
     const feedbacks = CardsData[3].cards 
-    console.log(feedbacks);
+    // console.log(feedbacks);
     
     // Import feedback data from CardsData
   // Variants for sliding animation
@@ -19,11 +19,12 @@ const FeedbackSlider = () => {
         x: {
           repeat: Infinity, // Infinite loop
           repeatType: "loop",
-          duration: 250, // Adjust speed
+          duration: 300, // Adjust speed
           ease: "linear",
         },
       },
     },
+    
   };
 
   return (

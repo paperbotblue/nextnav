@@ -3,9 +3,9 @@ import { motion } from "framer-motion"
 
 const Comp5 = () => {
   return (
-    <div className="bg-gray-100 p-4">
+    <div className="w-full h-full">
       {/* Wrapper with max-width and max-height for 2xl */}
-      <div className="   md:ps-20 lg:ps-32  lg:pe-4 max-w-[115em] max-h-full  mx-auto">
+      <div className="   md:ps-20 lg:ps-32  lg:pe-4 max-w-[115em] max-h-full  mx-auto  p-4">
       
         {/* Header Section */}
         <section className="flex w-full flex-col md:flex-row items-center  bg-gray-800 text-white p-8 rounded-lg shadow-lg mb-12">

@@ -1,34 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navdata from "../Navbar/Navdata"; 
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 border-t  border-gray-400 text-white">
-      <div className="max-w-[120em] xl:ps-[10em] md:ps-24 mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="w-full h-full">
+      <div className="max-w-[120em] bg-gray-900 border-t  border-gray-400 text-white xl:ps-[10em] md:ps-24 mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Quick Links */}
         <div>
           <h3 className="text-lg font-bold uppercase mb-4">Quick Links</h3>
           <ul className="space-y-2">
-            <li>
-              <Link to="/projects" className="hover:underline">
-                Our Projects
+            {Navdata.map((item, index) => (
+            <li key={item.id || index}>
+              <Link to={item.add ? item.add : undefined} 
+              onClick={()=>window.scrollTo({top:0,behavior:'smooth'})}
+              className="hover:underline underline-offset-4">
+                {item.buttoname}
               </Link>
             </li>
-            <li>
-              <Link to="/sustainability" className="hover:underline">
-                Sustainability
-              </Link>
-            </li>
-            <li>
-              <Link to="/people-culture" className="hover:underline">
-                People & Culture
-              </Link>
-            </li>
-            <li>
-              <Link to="/news" className="hover:underline">
-                News
-              </Link>
-            </li>
+
+            ))}
           </ul>
         </div>
 

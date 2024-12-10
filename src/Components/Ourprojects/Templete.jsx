@@ -20,7 +20,7 @@ const Completed = ({data,name}) => {
   const images = data.flatMap(i=>i.images.map(e=>e.src))
   const cardsImages = bgImage.map(i=>i.src)
 
-  console.log(images);
+  // console.log(images);
   
   
   useEffect(() => {

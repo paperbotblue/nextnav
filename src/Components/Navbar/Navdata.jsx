@@ -36,6 +36,7 @@ const Navdata = [
         buttoname:"Our Projects",
         src:'https://media.istockphoto.com/id/170616024/photo/concrete-highrise-construction-site.jpg?s=612x612&w=0&k=20&c=7-lJj9c_WVakkqoM6WTCNu9Q-E7bV6goRzS0NBnKsCc=',
         subbuthai:true,
+        add:'/ourproject',
         subbut:[
             {
                 id:1,

@@ -16,6 +16,8 @@ import Ongoing from './Ourprojects/Ongoing'
 import CardTemplate from './Ourprojects/CardTemplate'
 import Footer from './Footer/Footer'
 import Feedbacks from './feedbackform/Feedbacks'
+import PathNotFound from './pathNotFound/PathNotFound'
+import Ourproject from './Ourprojects/Ourproject'
 
 
 export {
@@ -36,5 +38,7 @@ export {
     Ongoing,
     CardTemplate,
     Footer,
-    Feedbacks
+    Feedbacks,
+    PathNotFound,
+    Ourproject
 }
