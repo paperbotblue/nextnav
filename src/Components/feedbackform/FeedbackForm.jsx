@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const FeedbackForm = () => {
     const {
@@ -8,9 +9,22 @@ const FeedbackForm = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log('Form Data:', data);
-        alert('Feedback submitted successfully!');
+    const onSubmit = async (data) => {
+        try {
+            const response = await axios({
+              method: 'POST',
+              url: 'http://localhost:3000/crud/sendFeedback.php',
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+              data: data,
+            });
+            
+            alert("feedback sent");
+      
+          } catch (error) {
+      
+          }
     };
 
     return (

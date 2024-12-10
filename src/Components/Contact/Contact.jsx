@@ -1,26 +1,18 @@
 import { useState } from "react";
+import axios from "axios";
+import { useForm } from "react-hook-form";
 import contactBg from "./contactbg.jpg"; // Import your background image
-import PhoneInputValidation from "./PhoneInputValidation";
+import PhoneInputValidation from "./PhoneInputValidation"; // Assuming you have a custom phone validation component
 
 const Contact = () => {
+  const { register, handleSubmit, formState: { errors, touchedFields } } = useForm();
+  const [selectedCountry, setSelectedCountry] = useState({
+    name: "India",
+    code: "+91",
+    maxLength: 10,
+  });
   const [email, setEmail] = useState("");
-  const [isTouched, setIsTouched] = useState(false); // Track user interaction
-  const [isValid, setIsValid] = useState(true); // Track validity
-
-  const handleEmailChange = (e) => {
-    const value = e.target.value;
-    setEmail(value);
-
-    // Validate email with regex pattern
-    const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-    setIsValid(emailRegex.test(value));
-  };
-
-  const handleBlur = (field) => {
-    if (field === "email" || field === "phone") {
-      setIsTouched(true);
-    }
-  };
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const countryData = [
     { name: "India", code: "+91", maxLength: 10 },
@@ -57,23 +49,34 @@ const Contact = () => {
     { name: "Lebanon", code: "+961", maxLength: 8 }
   ];
 
-  const [selectedCountry, setSelectedCountry] = useState(countryData[0]);
-  const [phoneNumber, setPhoneNumber] = useState("");
-
   const handleCountryChange = (e) => {
     const country = countryData.find((c) => c.name === e.target.value);
     if (country) {
       setSelectedCountry(country);
       setPhoneNumber(""); // Reset phone number on country change
-      setIsTouched(false); // Reset interaction flag
-      setIsValid(false);
     }
   };
 
   const handlePhoneNumberChange = (e) => {
     const value = e.target.value.replace(/[^0-9]/g, ""); // Allow only numbers
     setPhoneNumber(value);
-    setIsValid(value.length === selectedCountry.maxLength); // Validate length
+  };
+
+  const onSubmit = async (formData) => {
+
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3000/microservices/sendMail.php",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
+      });
+      // Handle response
+    } catch (error) {
+      // Handle error
+    }
   };
 
   return (
@@ -117,23 +120,18 @@ const Contact = () => {
               {/* Form */}
               <div className="w-full bg-white/70 backdrop-blur-lg shadow-lg p-5 md:p-10 rounded-lg max-w-lg">
                 <div className="text-left mb-8">
-                  <span className="text-sky-600 text-lg uppercase">
-                    Contact Now
-                  </span>
-                  <h2 className="text-3xl font-bold mt-4">
-                    Let's Start With Us
-                  </h2>
+                  <span className="text-sky-600 text-lg uppercase">Contact Now</span>
+                  <h2 className="text-3xl font-bold mt-4">Let's Start With Us</h2>
                   <p className="mt-6 mb-8">
-                    Let us know about your requirements, and provide the
-                    following details. We will get back to you with an idea of a
-                    brilliant software.
+                    Let us know about your requirements, and provide the following details.
+                    We will get back to you with an idea of a brilliant software.
                   </p>
                 </div>
-                <form method="POST" className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <input
+                      {...register("name", { required: "Name is required" })}
                       type="text"
-                      name="name"
                       placeholder="Enter name"
                       onInput={(e) => {
                         e.target.value = e.target.value.replace(
@@ -142,35 +140,32 @@ const Contact = () => {
                         ); // Remove numbers and special symbols
                       }}
                       className="border-b-2 border-gray-300 focus:border-sky-600 py-2 px-4 w-full"
-                      required
                     />
+                    {errors.name && <span className="text-red-500">{errors.name.message}</span>}
 
                     <input
+                      {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+                          message: "Please enter a valid email address.",
+                        },
+                      })}
                       type="email"
-                      name="email"
                       placeholder="Enter email"
-                      value={email}
-                      onChange={handleEmailChange}
-                      onBlur={() => handleBlur("email")} // Set touched on blur
-                      pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
-                      title="Please enter a valid email address."
-                      className={`border-b-2 py-2 px-4 w-full ${
-                        isTouched && !isValid
-                          ? "border-red-500"
-                          : "border-gray-300"
-                      } focus:border-sky-600`}
-                      required
+                      className={`border-b-2 py-2 px-4 w-full ${errors.email ? "border-red-500" : "border-gray-300"} focus:border-sky-600`}
                     />
+                    {errors.email && <span className="text-red-500">{errors.email.message}</span>}
                   </div>
 
                   <div className="grid grid-cols-1 gap-6">
                     <div className="flex">
                       {/* Dropdown showing only country names */}
                       <select
+                        {...register("country", { required: "Please select a country" })}
                         value={selectedCountry.name}
                         onChange={handleCountryChange}
                         className="border-b-2 border-gray-300 focus:border-sky-600 py-2 px-2 w-1/10"
-                        required
                       >
                         {countryData.map((country) => (
                           <option key={country.code} value={country.name}>
@@ -178,27 +173,29 @@ const Contact = () => {
                           </option>
                         ))}
                       </select>
+
                       {/* Phone number input */}
                       <input
+                        {...register("contact", {
+                          required: "Phone number is required",
+                          minLength: {
+                            value: selectedCountry.maxLength,
+                            message: `Phone number must be ${selectedCountry.maxLength} digits.`,
+                          },
+                        })}
                         type="text"
-                        name="contact"
                         placeholder={`Enter contact number (${selectedCountry.code})`}
                         value={phoneNumber}
                         onChange={handlePhoneNumberChange}
-                        onBlur={() => handleBlur("phone")} // Set the touched flag on blur
                         maxLength={selectedCountry.maxLength}
-                        className={`border-b-2 ${
-                          isTouched && !isValid
-                            ? "border-red-500"
-                            : "border-gray-300"
-                        } focus:border-sky-600 py-2 px-4 w-full`}
-                        required
+                        className={`border-b-2 ${errors.contact ? "border-red-500" : "border-gray-300"} focus:border-sky-600 py-2 px-4 w-full`}
                       />
+                      {errors.contact && <span className="text-red-500">{errors.contact.message}</span>}
                     </div>
+
                     <select
-                      name="select"
+                      {...register("profile", { required: "Please select a profile type" })}
                       className="border-b-2 border-gray-300 focus:border-sky-600 py-2 px-4"
-                      required
                     >
                       <option value="personal">Personal</option>
                       <option value="business">Business</option>
@@ -206,12 +203,12 @@ const Contact = () => {
                   </div>
 
                   <textarea
-                    name="message"
+                    {...register("message", { required: "Message is required" })}
                     rows="5"
                     placeholder="Enter your message"
                     className="border-b-2 border-gray-300 focus:border-sky-600 py-4 px-4 w-full"
-                    required
                   ></textarea>
+                  {errors.message && <span className="text-red-500">{errors.message.message}</span>}
                   <button
                     type="submit"
                     className="w-full py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition"
@@ -260,3 +257,4 @@ const Contact = () => {
 };
 
 export default Contact;
+  

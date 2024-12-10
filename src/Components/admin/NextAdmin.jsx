@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, act } from "react";
+import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import CardsData from "./CardsData";
 import { RiAddLargeLine } from "react-icons/ri";
@@ -7,7 +8,7 @@ import AddAndUpdate from "./AddAndUpdate";
 import { IoMdClose } from "react-icons/io";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logout } from "../../store/authslice";
 
 const NextAdmin = () => {
@@ -17,24 +18,24 @@ const NextAdmin = () => {
   const [Feedback, setFeedback] = useState(true);
   const [showNewCardForm, setShowNewCardForm] = useState(false); // State for new card form
   const [mode, setMode] = useState("Add")
-  const [initialData , setInitialData] = useState(null)
+  const [initialData, setInitialData] = useState(null)
 
   const dispatch = useDispatch()
 
   const handleUpdateClick = (card) => {
 
-      setMode("Update");
-      setInitialData({
-        id: card.id,
-        projectName:card.name,
-        location:card.location,
-        owner:card.owner,
-        consultant:card.consultant,
-        projectDetails:card.description,
-        images:card.images
-      });
-      setShowNewCardForm(true);
-      setSelectedCard(null)
+    setMode("Update");
+    setInitialData({
+      id: card.id,
+      projectName: card.name,
+      location: card.location,
+      owner: card.owner,
+      consultant: card.consultant,
+      projectDetails: card.description,
+      images: card.images
+    });
+    setShowNewCardForm(true);
+    setSelectedCard(null)
   }
 
   const extendedCardSize = Feedback ? "80%" : "50%";
@@ -55,29 +56,98 @@ const NextAdmin = () => {
     setSelectedCard(null);
   };
 
-  const FeedbackHandlerAccept = (id)=>{
-    console.log('accepted feedback',id);
-    
+  const FeedbackHandlerAccept = async (id) => {
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("table_name", activeCategory.tag);
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: 'http://localhost:3000/crud/sendData.php',
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        data: formData,
+      });
+    } catch (error) {
+
+    }
+  window.location.reload();
   }
 
-  const FeedbackHandlerReject = (id)=>{
-    console.log('rejected feedback',id);
-    
+  const FeedbackHandlerReject = (id) => {
+    FeedbackHandlerDelete(id);
   }
 
-  const FeedbackHandlerDelete = (id)=>{
-    console.log('Deleted feedback',id);
-    
+  const FeedbackHandlerDelete = async (id) => {
+    const data = { "id": id, "table_name": activeCategory.tag }
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: 'http://localhost:3000/crud/deleteData.php',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: data,
+      });
+    } catch (error) {
+
+    }
+    window.location.reload();
   }
 
-  const handleDeleteCard = (id)=> {
-    console.log('deletecard',id);
-    
+  const handleDeleteCard = (id) => {
+    FeedbackHandlerDelete(id);
   }
 
   const handleFeedback = (id) => {
     setFeedback(id === 3 || id === 4 ? false : true);
   };
+
+  const submitCard = async (form_data) => {
+    console.log(form_data);
+
+    const formData = new FormData();
+
+    if (mode == "Update") {
+      formData.append('id', form_data.id);
+
+    }
+    formData.append('table_name', activeCategory.tag);
+    formData.append('consultant', form_data.consultant);
+    formData.append('location', form_data.location);
+    formData.append('owner', form_data.owner);
+    formData.append('projectDetails', form_data.projectDetails);
+    formData.append('projectName', form_data.projectName);
+    formData.append('table_name', activeCategory.tag);
+    formData.append('image1', form_data.frontphoto[0]);
+    formData.append('mode', mode);
+
+  
+    for (let i = 2; i <= 6; i++) {
+      const imageKey = `image${i}`;
+
+      if (form_data[imageKey] && form_data[imageKey][0]) { // Check if the image exists
+        formData.append(imageKey, form_data[imageKey][0]); // Append the image file
+      }
+    }
+
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: 'http://localhost:3000/crud/sendData.php',
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        data: formData,
+      });
+      console.log(response.data);
+
+    } catch (error) {
+
+    }
+    window.location.reload();
+  }
 
   const handleAddCardClick = () => {
     setShowNewCardForm(true);
@@ -140,7 +210,7 @@ const NextAdmin = () => {
               </h1>
             ))}
           </motion.div>
-          <button style={{ padding: "0.5rem 1rem" }} onClick={()=>dispatch(logout())}>Logout</button>
+          <button style={{ padding: "0.5rem 1rem" }} onClick={() => dispatch(logout())}>Logout</button>
         </motion.nav>
         <div className="w-full h-[3.5rem]"></div>
 
@@ -150,7 +220,7 @@ const NextAdmin = () => {
             backgroundImage: `url(${BG})`,
             width: "100%",
             height: "100vh",
-            overflow: "auto",  
+            overflow: "auto",
             position: "relative",
             padding: "1rem",
           }}
@@ -213,11 +283,11 @@ const NextAdmin = () => {
             {/* Render Cards */}
             {activeCategory.cards.map((card) => (
               <motion.div
-              className="group overflow-hidden"
+                className="group overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 key={card.id}
                 layoutId={`${card.id}`}
-                onClick={() => {handleCardClick(card);setShow(true)}}
+                onClick={() => { handleCardClick(card); setShow(true) }}
                 whileTap={{ scale: 0.95 }}
                 style={{
                   display: "flex",
@@ -234,7 +304,7 @@ const NextAdmin = () => {
                 }}
               >
                 <h1 className="relative z-50 text-2xl">{Feedback ? card.name : card.email}</h1>
-                {!Feedback&&<p>{card.description}</p>}
+                {!Feedback && <p>{card.feedback}</p>}
                 <div className={`absolute w-full h-full ${card.images ? "block" : "hidden"}`}>
                   <img
                     src={card.images ? card.images[0].src : undefined}
@@ -242,36 +312,34 @@ const NextAdmin = () => {
                   />
                 </div>
                 <div
-                className={`absolute z-50 self-end w-full py-2 flex gap-2 justify-end px-4 text-right text-white rounded-b-3xl duration-300  translate-y-0`}
-              >
-                <button
-                  style={{display:activeCategory.id===4&&'none'}}
-                  className={`${
-                    Feedback
+                  className={`absolute z-50 self-end w-full py-2 flex gap-2 justify-end px-4 text-right text-white rounded-b-3xl duration-300  translate-y-0`}
+                >
+                  <button
+                    style={{ display: activeCategory.id === 4 && 'none' }}
+                    className={`${Feedback
                       ? "text-2xl py-2 px-4 border-white/40"
                       : "text-base py-1 h-max px-2 border-white/70"
-                  }  backdrop-blur-md text-blue-600 rounded-lg border  hover:border-blue-600/70 `}
-                  onClick={(e) => {e.stopPropagation(); {Feedback ? handleUpdateClick(card) : FeedbackHandlerAccept(card.id)} setShow(false)}}
-                >
-                  {Feedback ? <MdOutlineModeEditOutline /> : "Accept"}
-                </button>
-                <button
-                  className={`${
-                    Feedback
+                      }  backdrop-blur-md text-blue-600 rounded-lg border  hover:border-blue-600/70 `}
+                    onClick={(e) => { e.stopPropagation(); { Feedback ? handleUpdateClick(card) : FeedbackHandlerAccept(card.id) } setShow(false) }}
+                  >
+                    {Feedback ? <MdOutlineModeEditOutline /> : "Accept"}
+                  </button>
+                  <button
+                    className={`${Feedback
                       ? "text-2xl py-2 px-4 border-white/40"
                       : "text-base py-1 h-max px-2 border-white/70 "
-                  } px-4 text-2xl py-2 text-red-700 backdrop-blur-md rounded-lg border border-white/40 hover:border-red-600/70 `}
-                  onClick={(e) => {
-                    e.stopPropagation(); // Prevent triggering the card click
-                    if (Feedback) handleDeleteCard(card.id);
-                    else if (activeCategory.id === 4) FeedbackHandlerDelete(card.id);
-                    else FeedbackHandlerReject(card.id);
-                    setShow(false);
-                  }}
-                >
-                  {Feedback ? <RiDeleteBin6Fill /> : activeCategory.id===4 ? "Delete" : "Reject"}
-                </button>
-              </div>
+                      } px-4 text-2xl py-2 text-red-700 backdrop-blur-md rounded-lg border border-white/40 hover:border-red-600/70 `}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent triggering the card click
+                      if (Feedback) handleDeleteCard(card.id);
+                      else if (activeCategory.id === 4) FeedbackHandlerDelete(card.id);
+                      else FeedbackHandlerReject(card.id);
+                      setShow(false);
+                    }}
+                  >
+                    {Feedback ? <RiDeleteBin6Fill /> : activeCategory.id === 4 ? "Delete" : "Reject"}
+                  </button>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -279,7 +347,7 @@ const NextAdmin = () => {
           <AnimatePresence>
             {show && (
               <motion.div
-                
+
                 layoutId={show && `${selectedCard.id}`}
                 style={{
                   position: "fixed",
@@ -307,7 +375,7 @@ const NextAdmin = () => {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, ease: "backInOut" }}
               >
-                <div style={{width:'60%', display:!Feedback && 'none'}}>
+                <div style={{ width: '60%', display: !Feedback && 'none' }}>
                   <h1 style={{ fontSize: "2rem" }}>
                     Project name : {Feedback && selectedCard.name}
                   </h1>
@@ -323,22 +391,22 @@ const NextAdmin = () => {
                   <label htmlFor="description">Project description :</label>
                   <p id="description">{Feedback && selectedCard.description}</p>
                 </div>
-                <div style={{width:'40%', display:!Feedback && 'none'}}>
+                <div style={{ width: '40%', display: !Feedback && 'none' }}>
                   <h1>Project Photos</h1>
                   <div className="grid grid-cols-2">
                     {Feedback &&
-                      selectedCard.images.map((i)=>(
+                      selectedCard.images.map((i) => (
                         <img key={i.id} src={i.src}></img>
                       ))
                     }
                   </div>
                 </div>
-                <div style={{width:'100%', display:Feedback && 'none'}}>
+                <div style={{ width: '100%', display: Feedback && 'none' }}>
                   <h1>{!Feedback && selectedCard.email}</h1>
                   <p>{!Feedback && selectedCard.description}</p>
                 </div>
                 <button
-                  onClick={() => {setSelectedCard(null); setShow(false)}}
+                  onClick={() => { setSelectedCard(null); setShow(false) }}
                   style={{
                     marginTop: "1rem",
                     padding: "0.5rem 1rem",
@@ -347,8 +415,8 @@ const NextAdmin = () => {
                     border: "none",
                     borderRadius: "0.5rem",
                     cursor: "pointer",
-                    position:'absolute',
-                    bottom:'0'
+                    position: 'absolute',
+                    bottom: '0'
                   }}
                 >
                   Close
@@ -392,7 +460,7 @@ const NextAdmin = () => {
                   initialData={initialData}
                   activeCategory={activeCategory}
                   onSubmit={(formData) => {
-                    console.log("Submitted Data:", formData);
+                    submitCard(formData);
                     closeNewCardForm();
                   }}
                 />
