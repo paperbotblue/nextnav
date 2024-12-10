@@ -11,7 +11,7 @@ export default function Protected({children, authentication = true}){
         if(authentication && authStatus !== authentication){
             navigate('/admin')
         } else if(!authentication && authStatus !== authentication){
-            navigate('/')
+            navigate('/adminhome')
         }
         setLoader(false)
     },[navigate, authStatus, authentication])

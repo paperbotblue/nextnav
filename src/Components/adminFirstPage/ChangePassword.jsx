@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import FirstPageContainer from "./FirstPageContainer";
 import Logo from "../../assets/logo.png";
@@ -8,7 +9,7 @@ import ErrorIcon from '../../assets/error.png'
 
 
 const ChangePassword = () => {
-  const [serverError, setServerError] = useState("dfgsdfg");
+  const [serverError, setServerError] = useState("");
   const [visible, setVisible] = useState(false);
 
   const passwordShow = () => {
@@ -31,12 +32,25 @@ const ChangePassword = () => {
     mode:'onTouched'
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    console.log(data);
+    const formData = new FormData;
+    formData.append("old_password", data.oldpassword)
+    formData.append("new_password", data.newpassword)
+
     try {
-      console.log(data);
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3000/userHandling/change_password.php",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
+      });
+      alert(response.data.success);
     } catch (error) {
-      console.log(error);
-      setServerError(error);
+      alert("sdffsdfsd");
+
     }
   };
 
@@ -60,6 +74,32 @@ const ChangePassword = () => {
         {serverError && <div className="flex flex-col items-center"><img src={ErrorIcon} className="w-6"></img> <p className="w-full border-b mb-4 py-2 border-red-500 text-sm select-none text-red-500 pl-3">{serverError}</p></div>}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-4 items-center">
+          <div className="w-full flex flex-col mt-2 gap-1">
+              {/* <label htmlFor="newpassword">
+                New Password
+                <span className="text-red-600 font-semibold text-sm align-top select-none">
+                  &nbsp;*
+                </span>
+              </label> */}
+              
+              <input
+                 className={`px-3 py-4 rounded-lg outline-0 right-1 border border-gray-500 focus:border-0 ${errors.oldpassword || serverError ? 'focus:ring-1 focus:ring-red-500 border-red-500' : 'focus:ring-1 focus:ring-green-500'}`}
+                type="text"
+                placeholder="Old Password"
+                {...register("oldpassword", {
+                  required: "Old Password is required",
+                  minLength:{value:8, message:"Minimum required length is 8"},
+                  maxLength:{value:20, message:"Maximum length is 20"},
+                  pattern:{
+                    value:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    message:"Password must contain atleast 1 uppercase, 1 lowercase, 1 number and 1 special character"
+                  }
+                })}
+                
+                id="oldpassword"
+              />
+              {errors.oldpassword && <p className="text-sm text-red-500 pl-3">{errors.oldpassword.message}</p>}
+            </div>
             <div className="w-full flex flex-col mt-2 gap-1">
               {/* <label htmlFor="newpassword">
                 New Password
